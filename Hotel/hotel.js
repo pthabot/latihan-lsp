@@ -78,9 +78,15 @@ function tanyaKamar() {
   rl.question(
     "Masukkan tipe kamar (input dalam bentuk angka) : ",
     (tipeKamar) => {
+      if (tipeKamar <1 || tipeKamar >3){
+        console.log("input tidak valid")
+        tanyaKamar()
+        return
+      }
       rl.question(
         "Masukkan lama menginap (dalam hari) : ",
         (lamaMenginap) => {
+         
           const convert = tipeKamarMapping[tipeKamar];
           const hargaTipeKamar = hargaHotel[tipeKamar];
           const hargaMalam = hargaTipeKamar.find(
